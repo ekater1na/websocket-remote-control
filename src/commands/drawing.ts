@@ -7,7 +7,7 @@ export const circle = (radius: number, socket: internal.Duplex) => {
   socket.write(`draw_circle`);
   robot.mouseToggle('down');
 
-  for (let i = 0; i <= Math.PI * 2; i += 0.01) {
+  for (let i = 0; i <= Math.PI * 2; i += 0.02) {
     const x = mousePos.x + radius * Math.cos(i) - radius;
     const y = mousePos.y + radius * Math.sin(i);
     robot.dragMouse(x, y);
@@ -59,7 +59,7 @@ export const square = (width: number, socket: internal.Duplex) => {
   socket.write(`draw_square`);
 
   robot.mouseToggle('down');
-  
+
   for (let i = 0; i < width; i++) {
     const x = mousePos.x + i;
     const y = mousePos.y;
