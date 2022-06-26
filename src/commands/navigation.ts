@@ -3,8 +3,8 @@ import internal from 'stream';
 import { errorHandler } from '../utils/errorHandler';
 
 export const up = (offset: number, socket: internal.Duplex) => {
-  const { x, y } = robot.getMousePos();
   try {
+    const { x, y } = robot.getMousePos();
     robot.moveMouse(x, y - offset);
     socket.write(`mouse_up \0`);
   } catch (err) {
