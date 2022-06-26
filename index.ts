@@ -2,7 +2,7 @@ import 'dotenv/config';
 
 import { createWebSocketStream, WebSocket, WebSocketServer } from 'ws';
 import { httpServer } from './src/http_server/index';
-import { handler } from './src/handler';
+import { app } from './src/app';
 import internal from 'stream';
 
 const HTTP_PORT: number = Number(process.env.PORT) || 3000;
@@ -18,6 +18,6 @@ server.on('connection', (socket: WebSocket) => {
   });
 
   stream.on('data', (command) => {
-    handler(stream, command);
+    app(stream, command);
   });
 });

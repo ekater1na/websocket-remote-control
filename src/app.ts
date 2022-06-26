@@ -3,7 +3,7 @@ import { circle, rectangle, square } from './commands/drawing';
 import { down, left, position, right, up } from './commands/navigation';
 import { printScreen } from './commands/print-screen';
 
-export const handler = (stream: internal.Duplex, command: string) => {
+export const app = (stream: internal.Duplex, command: string) => {
   const args = command.split(' ');
 
   switch (args[0]) {
